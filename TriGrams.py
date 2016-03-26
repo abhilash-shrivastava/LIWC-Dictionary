@@ -2,7 +2,7 @@ with open("PosWords.txt") as f:
     posContent = f.readlines()
 
     posWords = []
-    for num in range(1, 10):
+    for num in range(1000, 1100):
         posContent[num] = posContent[num].split("\n")
         posWords.append(posContent[num][0]);
 

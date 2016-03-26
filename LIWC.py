@@ -31,15 +31,15 @@ with open("words") as f:
     import re
     for stem in posStems:
         pattern = stem+'(.*)'
-        indices = [i for i, x in enumerate(unix) if re.search(pattern, x)]
+        indices = [i for i, x in enumerate(unix) if re.match(pattern, x)]
         for index in indices:
             posWords.write(unix[index]+'\n');
 
     negWords = open("NegWords.txt", "wb")
 
     for stem in negStems:
-        pattern = '(.*)'+stem+'(.*)'
-        indices = [i for i, x in enumerate(unix) if re.search(pattern, x)]
+        pattern = stem+'(.*)'
+        indices = [i for i, x in enumerate(unix) if re.match(pattern, x)]
         for index in indices:
             negWords.write(unix[index]+'\n');
 
