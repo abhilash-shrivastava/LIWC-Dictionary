@@ -19,11 +19,14 @@ with open("Negemo.txt") as f:
 with open("words") as f:
     content = f.readlines()
 
+    import re
     unix = []
     for line in content:
         line = line.split("\n")
         line = line[0].split("*")
-        unix.append(line[0].upper());
+        pattern = '^[a-z\d]'
+        if re.match(pattern, line[0]):
+            unix.append(line[0].upper());
 
     posWords = open("PosWords.txt", "wb")
 
